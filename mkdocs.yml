@@ -1,0 +1,58 @@
+site_name: mr_pinchy
+site_description: Documentation for mr_pinchy — a modified BlueROV2 running ROS2, working towards autonomy.
+site_url: https://pinchyfamily.github.io/mr_pinchy/
+repo_url: https://github.com/PinchyFamily/mr_pinchy
+repo_name: PinchyFamily/mr_pinchy
+
+theme:
+  name: material
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: blue
+      accent: light blue
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - content.code.copy
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+  - md_in_html
+  - toc:
+      permalink: true
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started/index.md
+  - Vehicle:
+      - Overview: vehicle/index.md
+      - Hardware Modifications: vehicle/hardware.md
+      - Electronics: vehicle/electronics.md
+  - Architecture:
+      - Overview: architecture/index.md
+      - ROS2 Workspace: architecture/ros2-workspace.md
+      - Communication: architecture/communication.md
+  - Perception: perception/index.md
+  - Control: control/index.md
+  - Packages: packages/index.md
