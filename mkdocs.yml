@@ -49,6 +49,7 @@ nav:
       - Overview: vehicle/index.md
       - Hardware Modifications: vehicle/hardware.md
       - Electronics: vehicle/electronics.md
+      - 4G Modem: vehicle/4g-modem.md
   - Architecture:
       - Overview: architecture/index.md
       - ROS2 Workspace: architecture/ros2-workspace.md

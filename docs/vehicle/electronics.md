@@ -18,9 +18,13 @@ This page documents the electrical systems, wiring, and connector configuration 
 | Interface | Connection | Protocol |
 |-----------|-----------|----------|
 | Tether | Topside to ROV | Ethernet |
+| 4G Modem | SimTech SIM7600G-H → onboard compute | USB (QMI via `/dev/cdc-wdm0`) |
+| GNSS | u-blox → onboard compute | USB (NMEA on `/dev/ttyACM0`) |
 | Onboard compute to sensors | TBD | USB / Serial |
-| GNSS | TBD | USB (UBX) |
 | Sonar | TBD | TBD |
+
+!!! info
+    See [4G Modem](4g-modem.md) for detailed setup and operating instructions.
 
 ## Connector Pinouts
 
