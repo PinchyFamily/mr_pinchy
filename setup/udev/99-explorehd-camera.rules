@@ -1,0 +1,4 @@
+# exploreHD USB Camera (Sonix Technology Co., Ltd.)
+# Vendor: 0c45  Product: 6366  Serial: SN00009
+# Creates a stable symlink at /dev/explorehd_cam regardless of enumeration order
+SUBSYSTEM=="video4linux", ATTRS{idVendor}=="0c45", ATTRS{idProduct}=="6366", ATTR{index}=="0", SYMLINK+="explorehd_cam", TAG+="uaccess"

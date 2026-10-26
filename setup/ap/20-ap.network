@@ -1,0 +1,14 @@
+# Static IP for the Alfa AWUS036ACS AP interface.
+# systemd-networkd leaves this NIC unmanaged otherwise (netplan only covers eth0/wlan0).
+[Match]
+Name=wlx00c0cab7c94c
+
+[Network]
+Address=192.168.50.1/24
+# The AP has no carrier until hostapd starts, so configure regardless.
+ConfigureWithoutCarrier=yes
+IPv6AcceptRA=no
+LinkLocalAddressing=no
+
+[Link]
+RequiredForOnline=no

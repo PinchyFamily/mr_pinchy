@@ -19,6 +19,7 @@ The documentation is organized into:
 |---------|-------------|
 | [Getting Started](getting-started/index.md) | Development environment setup and build instructions |
 | [Vehicle](vehicle/index.md) | Hardware platform, modifications, and electronics |
+| [Payload Computer](payload/index.md) | Rebuilding the onboard Raspberry Pi: OS, udev, networking, ROS container, camera streaming |
 | [Architecture](architecture/index.md) | System design, ROS2 workspace layout, and communication topology |
 | [Perception](perception/index.md) | Sensor stack and perception algorithms |
 | [Control](control/index.md) | Control systems and motion planning |

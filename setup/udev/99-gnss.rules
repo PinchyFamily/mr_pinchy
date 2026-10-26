@@ -1,0 +1,4 @@
+# u-blox GNSS receiver (U-Blox AG)
+# Vendor: 1546  Product: 01ab
+# Creates a stable symlink at /dev/gnss regardless of enumeration order
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1546", ATTRS{idProduct}=="01ab", SYMLINK+="gnss", GROUP="dialout", MODE="0660", TAG+="uaccess"

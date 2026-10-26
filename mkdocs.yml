@@ -50,6 +50,13 @@ nav:
       - Hardware Modifications: vehicle/hardware.md
       - Electronics: vehicle/electronics.md
       - 4G Modem: vehicle/4g-modem.md
+  - Payload Computer:
+      - Overview: payload/index.md
+      - Base OS and Boot: payload/setup.md
+      - Devices and udev: payload/udev.md
+      - Networking: payload/networking.md
+      - ROS Container: payload/ros-container.md
+      - Camera Streaming: payload/camera-streaming.md
   - Architecture:
       - Overview: architecture/index.md
       - ROS2 Workspace: architecture/ros2-workspace.md
