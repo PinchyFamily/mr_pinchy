@@ -21,7 +21,7 @@ pinchy-humble-container/
 └── workspaces/          # mounted at /ros_ws
     ├── WELCOME.md
     └── src/
-        ├── explorehd_bringup/       # camera launch + config (not in any git repo)
+        ├── explorehd_bringup/       # old camera package; now camera.launch.py in mr_pinchy_bringup
         ├── mr_pinchy_bringup/       # PinchyFamily/mr_pinchy_bringup
         ├── nucleus_driver/          # NortekSupport/nucleus_driver
         ├── ublox_dgnss/             # PinchyFamily/ublox_dgnss
@@ -121,14 +121,15 @@ docker run -it --network host --ipc host nacho:latest
     - Pick one workspace path. The docs say `~/mr_pinchy_ws`, compose mounts `/ros_ws`, `nacho` uses `/home/pinchy/colcon_ws`, and the bringup README says `~/sonar_ws`.
     - Pick one `ublox_dgnss`: the PinchyFamily fork or aussierobots upstream.
     - `mr_pinchy_bringup` needs **MAVROS** and **`smarc_msgs`**, but neither is installed in either image.
-    - Push `pinchy-humble-container` to PinchyFamily, and put `explorehd_bringup` in a repo.
+    - Push `pinchy-humble-container` to PinchyFamily.
+    - Delete `explorehd_bringup` from the workspace; the camera is now part of `mr_pinchy_bringup`.
 
 ## Packages and launch
 
 | Package | Launch | Notes |
 |---------|--------|-------|
-| `mr_pinchy_bringup` | `ros2 launch mr_pinchy_bringup bringup.launch.py` | Full vehicle; profiles `full`, `sensors_only`, `gnss_only`, `sim`. Reads `config/pinchy.yaml` and `config/secrets.yaml` |
-| `explorehd_bringup` | `ros2 launch explorehd_bringup explorehd.launch.py` | `usb_cam` on `/dev/explorehd_cam`, 1920×1080 @ 30 fps MJPEG; publishes `/explorehd/image_raw` |
+| `mr_pinchy_bringup` | `ros2 launch mr_pinchy_bringup bringup.launch.py` | Full vehicle, auxiliary camera included; profiles `full`, `sensors_only`, `gnss_only`, `sim`. Reads `config/pinchy.yaml` and `config/secrets.yaml` |
+| `mr_pinchy_bringup` | `ros2 launch mr_pinchy_bringup camera.launch.py` | Camera only: `usb_cam` on `/dev/explorehd_cam`, 1920×1080 @ 30 fps; publishes `/explorehd/image_raw`. Settings in `config/camera.yaml` |
 | `waterlinked_sonar_3d15` | `ros2 launch waterlinked_sonar_3d15 sonar_3d15.launch.py` | Also included by bringup |
 
 Credentials (NTRIP and others) go in the untracked `mr_pinchy_bringup/config/secrets.yaml`. See [Networking → Secrets](networking.md#secrets).

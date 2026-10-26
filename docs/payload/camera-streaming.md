@@ -1,6 +1,6 @@
 # Camera Streaming
 
-Besides the ROS camera node (see [ROS container](ros-container.md)), the payload can stream the exploreHD camera straight to a topside ground station with Blue Robotics' [mavlink-camera-manager](https://github.com/mavlink/mavlink-camera-manager). This runs on the host, outside Docker.
+The exploreHD is an auxiliary camera. `mr_pinchy_bringup` starts a ROS camera node for it by default (see [ROS container](ros-container.md)). Instead of that, the payload can stream the exploreHD camera straight to a topside ground station with Blue Robotics' [mavlink-camera-manager](https://github.com/mavlink/mavlink-camera-manager). This runs on the host, outside Docker.
 
 | Property | Value |
 |----------|-------|
@@ -77,4 +77,4 @@ Open the web UI at `http://payload.local:6020` to pick the camera, format and st
     ```
 
 !!! note
-    The ROS `usb_cam` node and mavlink-camera-manager both open `/dev/explorehd_cam`. Run only one of them at a time.
+    The ROS `usb_cam` node and mavlink-camera-manager both open `/dev/explorehd_cam`, so only one can use it at a time. Bringup starts `usb_cam` by default; launch it with `camera:=false` while streaming topside.
