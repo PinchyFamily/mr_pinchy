@@ -16,6 +16,20 @@ This page documents the physical modifications made to the stock BlueROV2 to sup
 - **Mounting:** TBD
 - **ROS2 package:** [ublox_dgnss](https://github.com/PinchyFamily/ublox_dgnss)
 
+### Intel RealSense D435i
+
+- **Purpose:** Depth perception, visual odometry (built-in IMU)
+- **Connection:** USB 3.0 (`8086:0b3a`)
+- **Mounting:** TBD
+- **udev rule:** [`setup/udev/99-realsense-d435i.rules`](https://github.com/PinchyFamily/mr_pinchy/blob/main/setup/udev/99-realsense-d435i.rules)
+
+Install the udev rule so the camera is accessible without root:
+
+```bash
+sudo cp setup/udev/99-realsense-d435i.rules /etc/udev/rules.d/
+sudo udevadm control --reload-rules && sudo udevadm trigger
+```
+
 ### Cameras
 
 - **Purpose:** Visual perception, inspection

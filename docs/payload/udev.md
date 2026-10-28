@@ -6,6 +6,7 @@ USB devices get kernel names (`/dev/video0`, `/dev/ttyACM0`) that depend on enum
 |--------|--------|-------------|------|
 | exploreHD USB camera (DeepWater Exploration) | `0c45:6366` | `/dev/explorehd_cam` | [`99-explorehd-camera.rules`](https://github.com/PinchyFamily/mr_pinchy/blob/main/setup/udev/99-explorehd-camera.rules) |
 | u-blox GNSS receiver | `1546:01ab` | `/dev/gnss` | [`99-gnss.rules`](https://github.com/PinchyFamily/mr_pinchy/blob/main/setup/udev/99-gnss.rules) |
+| Intel RealSense D435i | `8086:0b3a` | `/dev/realsense_d435i` | [`99-realsense-d435i.rules`](https://github.com/PinchyFamily/mr_pinchy/blob/main/setup/udev/99-realsense-d435i.rules) |
 
 Both rules add `TAG+="uaccess"`. The GNSS rule also sets `GROUP="dialout"`, `MODE="0660"`.
 
